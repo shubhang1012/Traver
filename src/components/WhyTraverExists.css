@@ -1,0 +1,138 @@
+/* ============================================
+   Why Traver Exists Section
+   ============================================ */
+
+.why-exists {
+  padding: var(--space-section) 0;
+  background: var(--color-bg);
+}
+
+.why-exists__header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.why-exists__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.why-exists__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+
+/* Text column */
+.why-exists__text {
+  padding-top: var(--space-sm);
+}
+
+.why-exists__lead {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-primary);
+  font-weight: var(--fw-regular);
+  margin-bottom: var(--space-lg);
+}
+
+.why-exists__body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--fw-regular);
+}
+
+.why-exists__body strong {
+  color: var(--color-text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+/* Image column */
+.why-exists__image-wrap {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.why-exists__image {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  display: block;
+  transition: transform 8s ease-out;
+}
+
+.why-exists__image-wrap:hover .why-exists__image {
+  transform: scale(1.03);
+}
+
+.why-exists__image-card {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: var(--space-lg);
+  right: var(--space-lg);
+  padding: var(--space-lg);
+  background: rgba(12, 15, 26, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.why-exists__image-card-text {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  line-height: var(--lh-normal);
+}
+
+@media (max-width: 1024px) {
+  .why-exists__image {
+    height: 420px;
+  }
+}
+
+@media (max-width: 900px) {
+  .why-exists__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .why-exists__image {
+    height: 360px;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-exists__header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .why-exists__image {
+    height: 260px;
+  }
+
+  .why-exists__image-card {
+    bottom: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .why-exists__image-card-text {
+    font-size: var(--fs-small);
+  }
+}

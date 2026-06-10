@@ -1,0 +1,121 @@
+/* ============================================
+   How It Works Section
+   ============================================ */
+
+.how-it-works {
+  padding: var(--space-section) 0;
+  background: var(--color-bg);
+}
+
+.how-it-works__header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.how-it-works__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.how-it-works__subtitle {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  font-weight: var(--fw-light);
+}
+
+.how-it-works__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+/* Step Card */
+.step-card {
+  padding: var(--space-xl);
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(200, 87, 42, 0.18);
+}
+
+.step-card__number {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-border);
+  line-height: 1;
+  margin-bottom: var(--space-lg);
+}
+
+.step-card__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+.step-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.step-card__description {
+  font-size: var(--fs-small);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .how-it-works__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .step-card__number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .step-card {
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .step-card__number {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+  }
+}

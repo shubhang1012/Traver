@@ -1,0 +1,125 @@
+/* ============================================
+   Why Join Early Section
+   ============================================ */
+
+.why-join-early {
+  padding: var(--space-2xl) 0 var(--space-xl) 0;
+  background: var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-join-early::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 20% 50%, rgba(200, 87, 42, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.why-join-early__hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.why-join-early__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin-bottom: var(--space-sm);
+}
+
+.why-join-early__title-accent {
+  color: var(--color-accent);
+}
+
+.why-join-early__lead {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: var(--fw-regular);
+}
+
+.section-label--light {
+  color: var(--color-accent);
+}
+
+.section-label--light::before {
+  background: var(--color-accent);
+}
+
+.why-join-early__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  max-width: 840px;
+  margin: 0 auto;
+  padding-bottom: var(--space-xl);
+}
+
+.why-join-early__card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.why-join-early__card:hover {
+  border-color: rgba(200, 87, 42, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+.why-join-early__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: #ffffff;
+  margin-bottom: var(--space-sm);
+}
+
+.why-join-early__card-body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 1024px) {
+  .why-join-early__grid {
+    max-width: 600px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .why-join-early {
+    padding: var(--space-2xl) 0;
+  }
+
+  .why-join-early__grid {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .why-join-early__card {
+    padding: var(--space-md);
+  }
+}

@@ -1,0 +1,106 @@
+/* ============================================
+   Future Features Section
+   ============================================ */
+
+.future-features {
+  padding: var(--space-section) 0;
+  background: var(--color-bg-alt);
+}
+
+.future-features__header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.future-features__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.future-features__subtitle {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  font-weight: var(--fw-light);
+}
+
+.future-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+/* Feature Card */
+.future-feature-card {
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.future-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(200, 87, 42, 0.2);
+}
+
+.future-feature-card__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.future-feature-card:hover .future-feature-card__icon {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.future-feature-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.future-feature-card__description {
+  font-size: var(--fs-small);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .future-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .future-features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .future-feature-card {
+    padding: 0;
+  }
+}

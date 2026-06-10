@@ -1,0 +1,97 @@
+/* ============================================
+   Product Intro Section
+   ============================================ */
+
+.product-intro {
+  padding: var(--space-section) 0;
+  background: var(--color-bg);
+}
+
+.product-intro__header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.product-intro__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.product-intro__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+/* Card */
+.intro-card {
+  padding: var(--space-2xl);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.intro-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(200, 87, 42, 0.2);
+}
+
+.intro-card__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  border-radius: var(--radius-md);
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  transition: background var(--duration-fast) var(--ease-out),
+              transform var(--duration-normal) var(--ease-spring);
+}
+
+.intro-card:hover .intro-card__icon {
+  background: var(--color-accent);
+  color: #ffffff;
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.intro-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.intro-card__body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .product-intro__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .intro-card {
+    padding: var(--space-xl);
+  }
+}

@@ -1,0 +1,115 @@
+/* ============================================
+   Vision Section
+   ============================================ */
+
+.vision-section {
+  padding: var(--space-section) 0;
+  background: var(--color-bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    #E8826A 50%,
+    var(--color-secondary) 100%
+  );
+}
+
+/* Subtle decorative orb */
+.vision-section::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 87, 42, 0.06) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.vision-section__content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: var(--space-sm);
+}
+
+.vision-section__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-display);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2xl);
+  margin-top: var(--space-md);
+}
+
+.vision-section__body {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--fw-light);
+}
+
+.vision-section__body strong {
+  color: var(--color-text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.vision-section__body em {
+  font-style: italic;
+  color: var(--color-text-primary);
+}
+
+.vision-section__quote {
+  position: relative;
+  margin-top: var(--space-3xl);
+  padding: var(--space-2xl);
+  padding-left: var(--space-2xl);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.vision-section__quote blockquote {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  line-height: var(--lh-snug);
+  margin-bottom: var(--space-md);
+}
+
+.vision-section__quote cite {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  font-style: normal;
+  font-weight: var(--fw-medium);
+}
+
+@media (max-width: 600px) {
+  .vision-section__title {
+    font-size: var(--fs-h1);
+    letter-spacing: -0.01em;
+  }
+
+  .vision-section__quote {
+    padding: var(--space-xl);
+  }
+}

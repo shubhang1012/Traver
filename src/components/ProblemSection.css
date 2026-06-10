@@ -1,0 +1,104 @@
+/* ============================================
+   Problem Section
+   ============================================ */
+
+.problem-section {
+  padding: var(--space-section) 0;
+  background: var(--color-bg);
+}
+
+.problem-section__header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.problem-section__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.problem-section__title em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+.problem-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.problem-card {
+  padding: var(--space-2xl);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(200, 87, 42, 0.15);
+}
+
+.problem-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.problem-card__body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.problem-section__pivot {
+  text-align: center;
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  background: var(--color-accent-subtle);
+  border: 1px solid rgba(200, 87, 42, 0.15);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.problem-section__pivot:hover {
+  border-color: rgba(200, 87, 42, 0.3);
+}
+
+.problem-section__pivot-text {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-regular);
+}
+
+.problem-section__pivot-cta {
+  color: var(--color-accent);
+  font-weight: var(--fw-semibold);
+}
+
+@media (max-width: 768px) {
+  .problem-section__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-card {
+    padding: var(--space-xl);
+  }
+}
