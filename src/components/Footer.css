@@ -3,7 +3,6 @@
    ============================================ */
 
 .footer {
-  padding: var(--space-4xl) 0 var(--space-xl);
   background: var(--color-secondary);
   color: rgba(255, 255, 255, 0.5);
   position: relative;
@@ -34,19 +33,123 @@
   pointer-events: none;
 }
 
+
+/* ── Careers Banner ── */
+.footer__careers {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: var(--space-3xl) 0;
+}
+
+.footer__careers-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4xl);
+}
+
+.footer__careers-text {
+  flex-shrink: 0;
+  width: 220px;
+}
+
+.footer__careers-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+}
+
+.footer__careers-sub {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.35);
+  line-height: var(--lh-relaxed);
+}
+
+.footer__jobs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer__job-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.footer__job-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(200, 87, 42, 0.3);
+}
+
+.footer__job-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer__job-title {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer__job-type {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.02em;
+}
+
+.footer__job-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 1rem;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  border: 1px solid rgba(200, 87, 42, 0.35);
+  border-radius: var(--radius-full);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.footer__job-apply:hover {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+
+/* ── Nav Grid ── */
 .footer__top {
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: var(--space-4xl);
-  margin-bottom: var(--space-4xl);
-  padding-bottom: var(--space-4xl);
+  padding: var(--space-4xl) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: var(--space-xl);
 }
 
 .footer__brand {
   flex-shrink: 0;
+  width: 160px;
 }
 
 .footer__logo {
@@ -74,6 +177,7 @@
   margin-top: var(--space-sm);
 }
 
+/* Exactly 4 equal columns */
 .footer__nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -118,6 +222,7 @@
   z-index: 1;
   display: flex;
   justify-content: center;
+  padding-bottom: var(--space-2xl);
 }
 
 .footer__copyright {
@@ -128,14 +233,30 @@
   line-height: var(--lh-relaxed);
 }
 
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
+  .footer__careers-inner {
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .footer__careers-text {
+    width: 100%;
+  }
+
   .footer__top {
     flex-direction: column;
     gap: var(--space-2xl);
   }
 
+  .footer__brand {
+    width: 100%;
+  }
+
   .footer__nav {
     grid-template-columns: repeat(2, 1fr);
+    width: 100%;
   }
 }
 
@@ -143,10 +264,6 @@
   .footer__nav {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
-  }
-
-  .footer__bottom {
-    text-align: left;
   }
 }
 

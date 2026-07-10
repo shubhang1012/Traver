@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="hero__content">
         <div className="hero__badge">
           <span className="hero__badge-dot"></span>
-          <span>Coming Soon</span>
+          <span>Built to Explore.</span>
         </div>
 
         <h1 className="hero__title">
@@ -48,8 +48,8 @@ export default function Hero() {
         </h1>
 
         <p className="hero__subtitle">
-          Traver connects you with like-minded travelers — before, during, and
-          after your trips. Plan together. Meet up. Make the trip.
+          Traver is the travel app designed to get you off your phone and onto the road.
+          Find your people, close the app, and go explore.
         </p>
 
         <div className="hero__actions">
@@ -63,11 +63,6 @@ export default function Hero() {
             See How It Works
           </a>
         </div>
-      </div>
-
-      <div className="hero__scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div className="hero__scroll-line"></div>
       </div>
     </section>
   );

@@ -201,7 +201,7 @@ ul, ol {
    ============================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(44px);
+  transform: translateY(24px);
   transition: opacity var(--duration-slow) var(--ease-out),
               transform var(--duration-slow) var(--ease-out);
 }
@@ -213,7 +213,7 @@ ul, ol {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateX(-20px);
   transition: opacity var(--duration-slow) var(--ease-out),
               transform var(--duration-slow) var(--ease-out);
 }
@@ -225,7 +225,7 @@ ul, ol {
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateX(20px);
   transition: opacity var(--duration-slow) var(--ease-out),
               transform var(--duration-slow) var(--ease-out);
 }
@@ -237,7 +237,7 @@ ul, ol {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.92);
+  transform: scale(0.96);
   transition: opacity var(--duration-slow) var(--ease-out),
               transform var(--duration-slow) var(--ease-out);
 }
