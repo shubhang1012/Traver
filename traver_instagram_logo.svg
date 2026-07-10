@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&amp;display=swap');
+      .bg {
+        fill: #F9F6F2;
+      }
+      .logo-text {
+        font-family: 'DM Serif Display', 'Georgia', serif;
+        font-size: 140px;
+        font-style: italic;
+        fill: #0C0F1A;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        letter-spacing: -0.02em;
+      }
+      .dot {
+        fill: #C8572A;
+      }
+    </style>
+  </defs>
+  <rect width="800" height="800" class="bg" />
+  <!-- Shifted y slightly to visually center italic text -->
+  <text x="400" y="410" class="logo-text">
+    traver<tspan class="dot">.</tspan>
+  </text>
+</svg>

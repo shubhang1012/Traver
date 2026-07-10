@@ -35,7 +35,7 @@ export default function WhyTraverExists() {
           </div>
 
           <div className={`why-exists__image-wrap reveal-right ${revealed3 ? 'revealed' : ''}`} ref={ref3}>
-            <img src="/about-travel.png" alt="Scenic coastal road with travelers" className="why-exists__image" />
+            <img src="/solo-traveler-solitude.png" alt="Solo traveler looking at sunset" className="why-exists__image" />
             <div className="why-exists__image-card">
               <p className="why-exists__image-card-text">
                 "I wish someone I actually connect with was here."

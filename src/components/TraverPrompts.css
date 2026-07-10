@@ -1,0 +1,908 @@
+/* ============================================
+   Travel Journey Section
+   ============================================ */
+
+.travel-journey {
+  padding: var(--space-section) 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* — Header — */
+.travel-journey__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-4xl) auto;
+}
+
+.travel-journey__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.travel-journey__subtitle {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-light);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+
+/* ============================================
+   Timeline Container
+   ============================================ */
+
+.travel-journey__timeline {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+/* — Vertical thread-line — */
+.travel-journey__timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent) 0%,
+    #E8826A 50%,
+    var(--color-secondary-accent) 100%
+  );
+  transform: translateX(-50%);
+  opacity: 0.25;
+  border-radius: 2px;
+}
+
+
+/* ============================================
+   Phase Row
+   ============================================ */
+
+.travel-journey__phase {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: var(--space-4xl);
+  position: relative;
+}
+
+.travel-journey__phase:last-child {
+  margin-bottom: 0;
+}
+
+/* — Phase node (center dot on the thread) — */
+.travel-journey__node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  position: relative;
+  z-index: 2;
+  transition: transform var(--duration-normal) var(--ease-spring),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.travel-journey__node-num {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
+/* Glow ring on reveal */
+.travel-journey__phase.revealed .travel-journey__node {
+  box-shadow: 0 0 0 6px rgba(200, 87, 42, 0.1),
+              0 0 20px rgba(200, 87, 42, 0.08);
+}
+
+/* — Text block — */
+.travel-journey__text {
+  padding: var(--space-xl) var(--space-2xl);
+}
+
+.travel-journey__phase-icon {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-sm);
+  display: block;
+  line-height: 1;
+}
+
+.travel-journey__phase-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.travel-journey__phase-desc {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-light);
+  margin-bottom: var(--space-lg);
+}
+
+/* Micro-detail pills */
+.travel-journey__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-normal) var(--ease-out) 200ms,
+              transform var(--duration-normal) var(--ease-out) 200ms;
+}
+
+.travel-journey__phase.revealed .travel-journey__details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.travel-journey__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.travel-journey__pill-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.5;
+}
+
+
+/* ============================================
+   Visual Card (Illustrated UI mockup)
+   ============================================ */
+
+.travel-journey__visual {
+  padding: var(--space-lg);
+}
+
+.travel-journey__card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+  animation: cardFloat 6s ease-in-out infinite;
+  animation-play-state: paused;
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-journey__phase.revealed .travel-journey__card {
+  animation-play-state: running;
+}
+
+.travel-journey__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+
+/* ============================================
+   Alternating Layout (odd = text-left, even = text-right)
+   ============================================ */
+
+/* Odd phases: text left, visual right */
+.travel-journey__phase:nth-child(odd) .travel-journey__text {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+}
+
+.travel-journey__phase:nth-child(odd) .travel-journey__node {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.travel-journey__phase:nth-child(odd) .travel-journey__visual {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.travel-journey__phase:nth-child(odd) .travel-journey__details {
+  justify-content: flex-end;
+}
+
+/* Even phases: visual left, text right */
+.travel-journey__phase:nth-child(even) .travel-journey__visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.travel-journey__phase:nth-child(even) .travel-journey__node {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.travel-journey__phase:nth-child(even) .travel-journey__text {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: left;
+}
+
+.travel-journey__phase:nth-child(even) .travel-journey__details {
+  justify-content: flex-start;
+}
+
+/* Reveal directions */
+.travel-journey__phase:nth-child(odd) .travel-journey__text {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.travel-journey__phase:nth-child(odd) .travel-journey__visual {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity var(--duration-slow) var(--ease-out) 100ms,
+              transform var(--duration-slow) var(--ease-out) 100ms;
+}
+
+.travel-journey__phase:nth-child(even) .travel-journey__text {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.travel-journey__phase:nth-child(even) .travel-journey__visual {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity var(--duration-slow) var(--ease-out) 100ms,
+              transform var(--duration-slow) var(--ease-out) 100ms;
+}
+
+.travel-journey__phase.revealed .travel-journey__text,
+.travel-journey__phase.revealed .travel-journey__visual {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Node entrance */
+.travel-journey__node {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity var(--duration-normal) var(--ease-spring),
+              transform var(--duration-normal) var(--ease-spring);
+}
+
+.travel-journey__phase.revealed .travel-journey__node {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* ============================================
+   Illustrated Card Internals
+   ============================================ */
+
+/* — Discover Card — */
+.mock-profile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mock-profile__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.mock-profile__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-secondary-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.mock-profile__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mock-profile__name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-small);
+  color: var(--color-text-primary);
+}
+
+.mock-profile__dest {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.mock-profile__compat {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.mock-profile__compat-ring {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+}
+
+.mock-profile__compat-label {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+
+.mock-profile__prompt {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.mock-profile__prompt-q {
+  font-size: 0.6875rem;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.mock-profile__prompt-a {
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  color: var(--color-text-primary);
+}
+
+
+/* — Connect Card — */
+.mock-chat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mock-chat__context {
+  background: var(--color-accent-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  text-align: center;
+  font-weight: var(--fw-medium);
+}
+
+.mock-chat__bubble {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-end;
+}
+
+.mock-chat__bubble--right {
+  flex-direction: row-reverse;
+}
+
+.mock-chat__avatar-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-secondary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.mock-chat__bubble--right .mock-chat__avatar-sm {
+  background: var(--color-accent-light);
+}
+
+.mock-chat__msg {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  border-bottom-left-radius: 4px;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-normal);
+  color: var(--color-text-primary);
+  max-width: 80%;
+}
+
+.mock-chat__bubble--right .mock-chat__msg {
+  background: var(--color-secondary-light);
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: 4px;
+}
+
+.mock-chat__group-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-secondary);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  margin-top: var(--space-xs);
+}
+
+
+/* — Plan Card — */
+.mock-itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mock-itinerary__day {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.mock-itinerary__day-badge {
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: var(--fw-bold);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mock-itinerary__day-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.mock-itinerary__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-xs);
+  color: var(--color-text-primary);
+  padding: 6px 10px;
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+}
+
+.mock-itinerary__item-icon {
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.mock-itinerary__split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-secondary-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-top: var(--space-xs);
+}
+
+.mock-itinerary__split-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-secondary);
+}
+
+.mock-itinerary__split-amount {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  color: var(--color-secondary);
+}
+
+
+/* — Experience Card — */
+.mock-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mock-map__canvas {
+  background: #121824;
+  border-radius: var(--radius-md);
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mock-map__bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mock-map__marker {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.mock-map__marker-icon {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  animation: bounceMarker 2s ease-in-out infinite;
+}
+
+.mock-map__marker-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  margin-left: -12px;
+  background: var(--color-accent);
+  opacity: 0.4;
+  border-radius: 50%;
+  transform: scale(0.5);
+  animation: markerPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes bounceMarker {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -4px); }
+}
+
+@keyframes markerPulse {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+.mock-map__pin {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(18, 24, 36, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  padding: 3px 8px 3px 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.mock-map__pin:hover {
+  background: rgba(18, 24, 36, 0.9);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.mock-map__pin--1 {
+  top: 25%;
+  left: 60%;
+}
+
+.mock-map__pin--2 {
+  top: 72%;
+  left: 14%;
+}
+
+.mock-map__pin-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+
+.mock-map__tip {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.mock-map__tip-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mock-map__tip-text {
+  font-size: var(--fs-xs);
+  line-height: var(--lh-normal);
+  color: var(--color-text-secondary);
+}
+
+.mock-map__tip-text strong {
+  color: var(--color-text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+
+/* — Relive Card — */
+.mock-journal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mock-journal__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.mock-journal__photo {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-border-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mock-journal__photo:first-child {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  border-radius: var(--radius-md);
+}
+
+.mock-journal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.mock-journal__photo:hover .mock-journal__img {
+  transform: scale(1.05);
+}
+
+.mock-journal__story {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.mock-journal__story-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.mock-journal__story-text {
+  flex: 1;
+}
+
+.mock-journal__story-name {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+}
+
+.mock-journal__story-trip {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+
+.mock-journal__map-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  color: #fff;
+}
+
+.mock-journal__map-icon {
+  font-size: 1rem;
+}
+
+.mock-journal__map-text {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+.mock-journal__map-count {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+}
+
+
+/* ============================================
+   Responsive — Tablet
+   ============================================ */
+
+@media (max-width: 992px) {
+  .travel-journey__phase {
+    grid-template-columns: 48px 1fr;
+    gap: 0 var(--space-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .travel-journey__timeline::before {
+    left: calc(var(--space-xl) + 24px);
+  }
+
+  /* Reset alternating: all text above, visual below, node on left */
+  .travel-journey__phase:nth-child(odd) .travel-journey__node,
+  .travel-journey__phase:nth-child(even) .travel-journey__node {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: start;
+    margin-top: var(--space-lg);
+  }
+
+  .travel-journey__phase:nth-child(odd) .travel-journey__text,
+  .travel-journey__phase:nth-child(even) .travel-journey__text {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    padding: var(--space-md) 0;
+  }
+
+  .travel-journey__phase:nth-child(odd) .travel-journey__visual,
+  .travel-journey__phase:nth-child(even) .travel-journey__visual {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0 0 var(--space-md) 0;
+  }
+
+  .travel-journey__phase:nth-child(odd) .travel-journey__details,
+  .travel-journey__phase:nth-child(even) .travel-journey__details {
+    justify-content: flex-start;
+  }
+
+  /* Fix reveal direction for tablet */
+  .travel-journey__phase:nth-child(odd) .travel-journey__text,
+  .travel-journey__phase:nth-child(even) .travel-journey__text,
+  .travel-journey__phase:nth-child(odd) .travel-journey__visual,
+  .travel-journey__phase:nth-child(even) .travel-journey__visual {
+    transform: translateY(20px);
+  }
+
+  .travel-journey__phase.revealed .travel-journey__text,
+  .travel-journey__phase.revealed .travel-journey__visual {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================
+   Responsive — Mobile
+   ============================================ */
+
+@media (max-width: 600px) {
+  .travel-journey__timeline {
+    padding: 0 var(--space-md);
+  }
+
+  .travel-journey__phase {
+    grid-template-columns: 36px 1fr;
+    gap: 0 var(--space-md);
+  }
+
+  .travel-journey__timeline::before {
+    left: calc(var(--space-md) + 18px);
+  }
+
+  .travel-journey__node {
+    width: 36px;
+    height: 36px;
+  }
+
+  .travel-journey__card {
+    padding: var(--space-md);
+  }
+
+  .mock-map__canvas {
+    height: 90px;
+  }
+
+  .mock-journal__photos {
+    gap: 4px;
+  }
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
@@ -15,6 +16,8 @@ export default function Footer() {
 
   return (
     <footer className="footer">
+
+      {/* ── Footer nav ── */}
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
@@ -26,24 +29,22 @@ export default function Footer() {
 
           <div className="footer__nav">
             <div className="footer__nav-col">
-              <h4 className="footer__nav-heading">Product</h4>
-              <a href="#how-it-works" className="footer__nav-link" onClick={(e) => scrollTo(e, '#how-it-works')}>How It Works</a>
-              <a href="#features" className="footer__nav-link" onClick={(e) => scrollTo(e, '#features')}>Features</a>
-              <a href="#vision" className="footer__nav-link" onClick={(e) => scrollTo(e, '#vision')}>Vision</a>
-              <a href="#roadmap" className="footer__nav-link" onClick={(e) => scrollTo(e, '#roadmap')}>Roadmap</a>
+              <h4 className="footer__nav-heading">Company</h4>
+              <a href="#why-exists" className="footer__nav-link" onClick={(e) => scrollTo(e, '#why-exists')}>About Us</a>
+              <a href="#faq" className="footer__nav-link" onClick={(e) => scrollTo(e, '#faq')}>FAQ</a>
+              <a href="#vision" className="footer__nav-link" onClick={(e) => scrollTo(e, '#vision')}>Our Vision</a>
             </div>
 
             <div className="footer__nav-col">
-              <h4 className="footer__nav-heading">Company</h4>
-              <a href="#why-exists" className="footer__nav-link" onClick={(e) => scrollTo(e, '#why-exists')}>About Us</a>
-              <a href="#founder-story" className="footer__nav-link" onClick={(e) => scrollTo(e, '#founder-story')}>Founder Story</a>
-              <a href="#faq" className="footer__nav-link" onClick={(e) => scrollTo(e, '#faq')}>FAQ</a>
+              <h4 className="footer__nav-heading">Careers</h4>
+              <Link to="/careers" className="footer__nav-link">View all roles</Link>
             </div>
 
             <div className="footer__nav-col">
               <h4 className="footer__nav-heading">Legal</h4>
               <a href="#" className="footer__nav-link">Privacy Policy</a>
               <a href="#" className="footer__nav-link">Terms of Service</a>
+              <a href="#" className="footer__nav-link">Cookie Policy</a>
             </div>
 
             <div className="footer__nav-col">
@@ -61,12 +62,6 @@ export default function Footer() {
                   <path d="M4 4l16 16M4 20L20 4"/>
                 </svg>
                 X / Twitter
-              </a>
-              <a href="https://tiktok.com" className="footer__nav-link footer__nav-link--social" target="_blank" rel="noopener noreferrer">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9 12a4 4 0 1 0 4 4V4c.5 1.5 2 3 4 3"/>
-                </svg>
-                TikTok
               </a>
               <a href="https://linkedin.com" className="footer__nav-link footer__nav-link--social" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

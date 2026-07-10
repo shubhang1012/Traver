@@ -101,6 +101,6 @@
   }
 
   .future-feature-card {
-    padding: 0;
+    padding: var(--space-lg);
   }
 }
