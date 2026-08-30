@@ -30,14 +30,15 @@ export default function Footer() {
           <div className="footer__nav">
             <div className="footer__nav-col">
               <h4 className="footer__nav-heading">Company</h4>
-              <a href="#why-exists" className="footer__nav-link" onClick={(e) => scrollTo(e, '#why-exists')}>About Us</a>
-              <a href="#faq" className="footer__nav-link" onClick={(e) => scrollTo(e, '#faq')}>FAQ</a>
-              <a href="#vision" className="footer__nav-link" onClick={(e) => scrollTo(e, '#vision')}>Our Vision</a>
+              <Link to="/vision" className="footer__nav-link">Our Vision</Link>
+              <Link to="/how-it-works" className="footer__nav-link">How It Works</Link>
+              <a href="/#faq" className="footer__nav-link">FAQ</a>
             </div>
 
             <div className="footer__nav-col">
-              <h4 className="footer__nav-heading">Careers</h4>
-              <Link to="/careers" className="footer__nav-link">View all roles</Link>
+              <h4 className="footer__nav-heading">Product</h4>
+              <a href="/#roadmap" className="footer__nav-link">Roadmap</a>
+              <Link to="/careers" className="footer__nav-link">Careers</Link>
             </div>
 
             <div className="footer__nav-col">

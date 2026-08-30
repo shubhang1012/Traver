@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useNavScroll } from '../hooks/useAnimations';
+import { useContactModal } from './ContactModalContext';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -8,35 +9,26 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const { openModal } = useContactModal();
 
-  const navLinks = [
-    { label: 'Vision', href: '#vision' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Roadmap', href: '#roadmap' },
+  const routeLinks = [
+    { label: 'Vision', to: '/vision' },
+    { label: 'How It Works', to: '/how-it-works' },
+    { label: 'Careers', to: '/careers' },
   ];
-
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setMenuOpen(false);
-    if (!isHome) {
-      navigate('/');
-      // allow page to render before scrolling
-      setTimeout(() => {
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-      }, 120);
-    } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleLogoClick = (e) => {
     e.preventDefault();
-    if (isHome) {
+    if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate('/');
     }
+  };
+
+  const handleGetInTouch = () => {
+    setMenuOpen(false);
+    openModal();
   };
 
   return (
@@ -47,26 +39,23 @@ export default function Navbar() {
         </a>
 
         <div className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-          {navLinks.map((link) => (
-            <a
+          {routeLinks.map((link) => (
+            <Link
               key={link.label}
-              href={link.href}
-              className="navbar__link"
-              onClick={(e) => handleNavClick(e, link.href)}
+              to={link.to}
+              className={`navbar__link ${location.pathname === link.to ? 'navbar__link--active' : ''}`}
+              onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <Link to="/careers" className="navbar__link" onClick={() => setMenuOpen(false)}>
-            Careers
-          </Link>
-          <a
-            href="#waitlist"
+          <button
             className="navbar__cta"
-            onClick={(e) => handleNavClick(e, '#waitlist')}
+            onClick={handleGetInTouch}
+            id="nav-get-in-touch"
           >
-            Join Waitlist
-          </a>
+            Get in Touch
+          </button>
         </div>
 
         <button

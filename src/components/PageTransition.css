@@ -1,0 +1,105 @@
+/* ============================================
+   Page Transition Overlay
+   ============================================ */
+
+.pt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0C0F1A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  pointer-events: all;
+  will-change: transform;
+}
+
+/* ── Enter: curtain sweeps UP from the bottom ── */
+.pt-overlay--entering {
+  animation: pt-enter 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Hold: fully visible ── */
+.pt-overlay--visible {
+  transform: translateY(0);
+}
+
+/* ── Leave: curtain sweeps UP off the top ── */
+.pt-overlay--leaving {
+  animation: pt-leave 0.55s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes pt-enter {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes pt-leave {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+
+/* ── Logo ── */
+.pt-logo {
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: #F9F6F2;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  opacity: 0;
+  animation: pt-logo-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.pt-logo__dot {
+  color: #C8572A;
+  display: inline-block;
+  animation: pt-dot-pulse 1.4s ease-in-out 0.75s infinite;
+}
+
+@keyframes pt-logo-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pt-dot-pulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.35); opacity: 0.7; }
+}
+
+/* ── Loading bar ── */
+.pt-bar-track {
+  width: clamp(120px, 20vw, 220px);
+  height: 2px;
+  background: rgba(249, 246, 242, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+  opacity: 0;
+  animation: pt-logo-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.pt-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #C8572A, #E8826A);
+  border-radius: 9999px;
+  transform-origin: left;
+  animation: pt-bar-grow var(--pt-duration, 1.2s) cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes pt-bar-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Radial ambient glow ── */
+.pt-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(200, 87, 42, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
