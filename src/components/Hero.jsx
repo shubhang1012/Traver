@@ -10,16 +10,6 @@ export default function Hero() {
     }
   }, []);
 
-  const scrollToWaitlist = (e) => {
-    e.preventDefault();
-    document.querySelector('#waitlist')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToHowItWorks = (e) => {
-    e.preventDefault();
-    document.querySelector('#how-it-works')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="hero" id="hero">
       <div className="hero__bg">
@@ -51,18 +41,6 @@ export default function Hero() {
           Traver is the travel app designed to get you off your phone and onto the road.
           Find your people, close the app, and go explore.
         </p>
-
-        <div className="hero__actions">
-          <a href="#waitlist" className="hero__btn hero__btn--primary" onClick={scrollToWaitlist}>
-            Join the Waitlist
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-          <a href="#how-it-works" className="hero__btn hero__btn--secondary" onClick={scrollToHowItWorks}>
-            See How It Works
-          </a>
-        </div>
       </div>
     </section>
   );

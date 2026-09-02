@@ -14,7 +14,6 @@ export default function Navbar() {
   const routeLinks = [
     { label: 'Vision', to: '/vision' },
     { label: 'How It Works', to: '/how-it-works' },
-    { label: 'Careers', to: '/careers' },
   ];
 
   const handleLogoClick = (e) => {

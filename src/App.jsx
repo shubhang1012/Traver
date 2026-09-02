@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import PageTransition from './components/PageTransition';
 import ContactModal from './components/ContactModal';
 import { ContactModalProvider } from './components/ContactModalContext';
-import CareersPage from './pages/CareersPage';
+// import CareersPage from './pages/CareersPage'; // Hidden for now — re-enable when ready
 import VisionPage from './pages/VisionPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 
@@ -39,7 +39,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/vision" element={<VisionPage />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/careers" element={<CareersPage />} />
+          {/* <Route path="/careers" element={<CareersPage />} /> */}{/* Hidden for now */}
         </Routes>
       </BrowserRouter>
     </ContactModalProvider>
